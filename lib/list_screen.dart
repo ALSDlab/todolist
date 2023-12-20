@@ -3,8 +3,7 @@ import 'package:todolist/create_screen.dart';
 import 'package:todolist/todo.dart';
 
 class ListScreen extends StatefulWidget {
-  ListScreen({super.key});
-
+  const ListScreen({super.key});
 
   @override
   State<ListScreen> createState() => _ListScreenState();
@@ -33,13 +32,14 @@ class _ListScreenState extends State<ListScreen> {
         title: const Text('Todo 리스트'),
       ),
       body: ListView(
-        children: todos.map(
-              (todo) =>
-              ListTile(
+        children: todos
+            .map(
+              (todo) => ListTile(
                 title: Text(todo.title),
                 subtitle: Text('${todo.dateTime}'),
               ),
-        ).toList(),
+            )
+            .toList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
