@@ -22,13 +22,16 @@ class _ListScreenState extends State<ListScreen> {
         children: todos.values
             .map(
               (e) => TodoItem(
-                todo: e,
-                onTap: (todo) async {
-                  todo.isDone = !todo.isDone;
-                  await todo.save();
-                  setState(() {});
-                },
-              ),
+                  todo: e,
+                  onTap: (todo) async {
+                    todo.isDone = !todo.isDone;
+                    await todo.save();
+                    setState(() {});
+                  },
+                  onDelete: (todo) async {
+                    await todo.delete();
+                    setState(() {});
+                  }),
             )
             .toList(),
       ),

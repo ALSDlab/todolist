@@ -29,7 +29,7 @@ class _CreateScreenState extends State<CreateScreen> {
             onPressed: () async {
               await todos.add(Todo(
                 title: _textController.text,
-                dateTime: DateTime.now().microsecondsSinceEpoch,
+                dateTime: DateTime.now().millisecondsSinceEpoch,
               ));
               if (mounted) {
                 Navigator.pop(context);
